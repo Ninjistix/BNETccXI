@@ -13573,6 +13573,28 @@ inline int32 CLuaBaseEntity::itemStolen(lua_State *L)
     return 1;
 }
 
+/************************************************************************
+*  Function: hasEnmity()
+*  Purpose : Used to check if the player has enmity in the zone
+*  Example : hasEnmity = player:hasEnmity()
+************************************************************************/
+
+inline int32 CLuaBaseEntity::hasEnmity(lua_State *L)
+{
+    CCharEntity* PChar = (CCharEntity*)m_PBaseEntity;
+    for (SpawnIDList_t::iterator it = PChar->SpawnMOBList.begin(); it != PChar->SpawnMOBList.end(); ++it)
+    {
+        CMobEntity* MOB = (CMobEntity*)it->second;
+
+        if (MOB->PEnmityContainer->HasID(PChar->id))
+        {
+            return 1;
+        }
+    }
+
+    return 0;
+}
+
 //=======================================================//
 
 const char CLuaBaseEntity::className[] = "CBaseEntity";
@@ -14219,6 +14241,8 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,addTreasure),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getStealItem),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,itemStolen),
+
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,hasEnmity),
 
     {nullptr,nullptr}
 };
