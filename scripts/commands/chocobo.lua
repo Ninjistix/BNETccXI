@@ -3,20 +3,15 @@
 -- desc: Spawns a chocobo.
 ---------------------------------------------------------------------------------------------------
 
-cmdprops =
-{
+cmdprops = {
     permission = 0,
     parameters = ""
 };
 
 function onTrigger(player)
-    -- player:setAnimation(5);
-    player:PrintToPlayer("disabled because of abuse. use !flash to get around faster");
-    --entityVisualPacket(lua_State* L)
-    -- player race chocobo
-    -- 20 yellow
-    -- 21 black
-    -- 22 blue
-    -- 23 red
-    -- 24 green
+    if (player:isEngaged() or player:hasEnmity()) then
+        player:PrintToPlayer('!chocobo cannot be used while in combat or under attack! Run away!', 0xF);
+    else
+        player:setAnimation("5");
+    end
 end;
