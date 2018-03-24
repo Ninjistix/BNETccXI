@@ -14,4 +14,6 @@ function onTrigger(player)
     player:delStatusEffect(EFFECT_SANCTION);
     player:delStatusEffect(EFFECT_SIGNET);
     player:addStatusEffect(EFFECT_SIGNET,0,0,duration); -- Grant Signet
+
+    player:PrintToPlayer("Signet granted for " .. tostring(duration / 3600) .. " hours.", 0xF);
 end
