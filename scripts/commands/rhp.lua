@@ -191,7 +191,7 @@ function onTrigger(player)
                 end
             end
         end
-        player:PrintToPlayer("=== Complete! ===", 0xF);
+        player:PrintToPlayer("=== Home Points Registered! ===", 0xF);
     else
         player:PrintToPlayer("Home point teleports are currently disabled on this server.", 0xF);
     end
