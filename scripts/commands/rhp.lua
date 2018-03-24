@@ -150,44 +150,46 @@ function onTrigger(player)
 
                 local hpname = homepoints[hpIndex][9];
 
-                if (homepoints[hpIndex][1] == 1) then
-                    if (bit.rshift( bit.lshift( HpTeleportMask1, 32 - homepoints[hpIndex][2]), 31) == 0) then
-                        HpTeleportMask1 = bit.bor( HpTeleportMask1, bit.lshift( 1, homepoints[hpIndex][2] - 1));
+                if (tostring(hpname) ~= "false") then
+                    if (homepoints[hpIndex][1] == 1) then
+                        if (bit.rshift( bit.lshift( HpTeleportMask1, 32 - homepoints[hpIndex][2]), 31) == 0) then
+                            HpTeleportMask1 = bit.bor( HpTeleportMask1, bit.lshift( 1, homepoints[hpIndex][2] - 1));
 
-                        player:setVar("HpTeleportMask1a", bit.rshift( HpTeleportMask1, 16));
-                        player:setVar("HpTeleportMask1b", bit.rshift( bit.lshift( HpTeleportMask1, 16), 16));
+                            player:setVar("HpTeleportMask1a", bit.rshift( HpTeleportMask1, 16));
+                            player:setVar("HpTeleportMask1b", bit.rshift( bit.lshift( HpTeleportMask1, 16), 16));
 
-                        player:PrintToPlayer(tostring(hpname) .. " home point registered!", 0xF);
+                            player:PrintToPlayer(tostring(hpname) .. " home point registered!", 0xF);
+                        end
+                    elseif (homepoints[hpIndex][1] == 2) then
+                        if (bit.rshift( bit.lshift( HpTeleportMask2, 32 - homepoints[hpIndex][2]), 31) == 0) then
+                            HpTeleportMask2 = bit.bor( HpTeleportMask2, bit.lshift( 1, homepoints[hpIndex][2] - 1));
+
+                            player:setVar("HpTeleportMask2a", bit.rshift( HpTeleportMask2, 16));
+                            player:setVar("HpTeleportMask2b", bit.rshift( bit.lshift( HpTeleportMask2, 16), 16));
+
+                            player:PrintToPlayer(tostring(hpname) .. " home point registered!", 0xF);
+                        end
+                    elseif (homepoints[hpIndex][1] == 3) then
+                        if (bit.rshift( bit.lshift( HpTeleportMask3, 32 - homepoints[hpIndex][2]), 31) == 0) then
+                            HpTeleportMask3 = bit.bor( HpTeleportMask3, bit.lshift( 1, homepoints[hpIndex][2] - 1));
+
+                            player:setVar("HpTeleportMask3a", bit.rshift( HpTeleportMask3, 16));
+                            player:setVar("HpTeleportMask3b", bit.rshift( bit.lshift( HpTeleportMask3, 16), 16));
+
+                            player:PrintToPlayer(tostring(hpname) .. " home point registered!", 0xF);
+                        end
+                    elseif (homepoints[hpIndex][1] == 4) then
+                        if (bit.rshift( bit.lshift( HpTeleportMask4, 32 - homepoints[hpIndex][2]), 31) == 0) then
+                            HpTeleportMask4 = bit.bor( HpTeleportMask4, bit.lshift( 1, homepoints[hpIndex][2] - 1));
+
+                            player:setVar("HpTeleportMask4a", bit.rshift( HpTeleportMask4, 16));
+                            player:setVar("HpTeleportMask4b", bit.rshift( bit.lshift( HpTeleportMask4, 16), 16));
+
+                            player:PrintToPlayer(tostring(hpname) .. " home point registered!", 0xF);
+                        end
+                    elseif (homepoints[hpIndex][1] == 5) then
+                        -- nothin here yet
                     end
-                elseif (homepoints[hpIndex][1] == 2) then
-                    if (bit.rshift( bit.lshift( HpTeleportMask2, 32 - homepoints[hpIndex][2]), 31) == 0) then
-                        HpTeleportMask2 = bit.bor( HpTeleportMask2, bit.lshift( 1, homepoints[hpIndex][2] - 1));
-
-                        player:setVar("HpTeleportMask2a", bit.rshift( HpTeleportMask2, 16));
-                        player:setVar("HpTeleportMask2b", bit.rshift( bit.lshift( HpTeleportMask2, 16), 16));
-
-                        player:PrintToPlayer(tostring(hpname) .. " home point registered!", 0xF);
-                    end
-                elseif (homepoints[hpIndex][1] == 3) then
-                    if (bit.rshift( bit.lshift( HpTeleportMask3, 32 - homepoints[hpIndex][2]), 31) == 0) then
-                        HpTeleportMask3 = bit.bor( HpTeleportMask3, bit.lshift( 1, homepoints[hpIndex][2] - 1));
-
-                        player:setVar("HpTeleportMask3a", bit.rshift( HpTeleportMask3, 16));
-                        player:setVar("HpTeleportMask3b", bit.rshift( bit.lshift( HpTeleportMask3, 16), 16));
-
-                        player:PrintToPlayer(tostring(hpname) .. " home point registered!", 0xF);
-                    end
-                elseif (homepoints[hpIndex][1] == 4) then
-                    if (bit.rshift( bit.lshift( HpTeleportMask4, 32 - homepoints[hpIndex][2]), 31) == 0) then
-                        HpTeleportMask4 = bit.bor( HpTeleportMask4, bit.lshift( 1, homepoints[hpIndex][2] - 1));
-
-                        player:setVar("HpTeleportMask4a", bit.rshift( HpTeleportMask4, 16));
-                        player:setVar("HpTeleportMask4b", bit.rshift( bit.lshift( HpTeleportMask4, 16), 16));
-
-                        player:PrintToPlayer(tostring(hpname) .. " home point registered!", 0xF);
-                    end
-                elseif (homepoints[hpIndex][1] == 5) then
-                    -- nothin here yet
                 end
             end
         end
