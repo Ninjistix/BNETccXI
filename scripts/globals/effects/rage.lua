@@ -2,10 +2,10 @@
 --
 -- EFFECT_RAGE
 --
--- When a mob is held to long, 
+-- When a mob is held to long,
 -- adds massive stats on top of what mob already has
--- until mob has lost hate on all targets 
--- and has no targets to attack 
+-- until mob has lost hate on all targets
+-- and has no targets to attack
 -- (is fully disengaged from all players)
 -- and returned to an idle state.
 --
@@ -18,7 +18,7 @@ require("scripts/globals/status");
 -----------------------------------
 
 function onEffectGain(target,effect)
-    if (effect:getPower() == 1);
+    if (effect:getPower() == 1) then
         target:addMod(MOD_STR, 250);
         target:addMod(MOD_DEX, 250);
         target:addMod(MOD_VIT, 250);
@@ -42,8 +42,8 @@ function onEffectGain(target,effect)
         target:addMod(MOD_REGAIN, 50);
         target:addMod(MOD_REFRESH, 50);
         target:addMod(MOD_REGEN, 50);
-    elseif (effect:getPower() == 2);
-        local SubPower = effect:getSubPower());
+    elseif (effect:getPower() == 2) then
+        local SubPower = effect:getSubPower();
         target:addMod(MOD_STR, SubPower);
         target:addMod(MOD_DEX, SubPower);
         target:addMod(MOD_VIT, SubPower);
@@ -68,8 +68,8 @@ end;
 -----------------------------------
 
 function onEffectTick(target,effect)
-    if (effect:getPower() == 2);
-        local SubPower = effect:getSubPower());
+    if (effect:getPower() == 2) then
+        local SubPower = effect:getSubPower();
         target:addMod(MOD_STR, SubPower);
         target:addMod(MOD_DEX, SubPower);
         target:addMod(MOD_VIT, SubPower);
@@ -95,7 +95,7 @@ end;
 -----------------------------------
 
 function onEffectLose(target,effect)
-    if (effect:getPower() == 1);
+    if (effect:getPower() == 1) then
         target:delMod(MOD_STR, 250);
         target:delMod(MOD_DEX, 250);
         target:delMod(MOD_VIT, 250);
@@ -119,8 +119,8 @@ function onEffectLose(target,effect)
         target:delMod(MOD_REGAIN, 50);
         target:delMod(MOD_REFRESH, 50);
         target:delMod(MOD_REGEN, 50);
-    elseif (effect:getPower() == 2);
-        local SubPower = effect:getSubPower());
+    elseif (effect:getPower() == 2) then
+        local SubPower = effect:getSubPower();
         target:delMod(MOD_STR, SubPower);
         target:delMod(MOD_DEX, SubPower);
         target:delMod(MOD_VIT, SubPower);
