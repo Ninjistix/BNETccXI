@@ -1,11 +1,10 @@
 ---------------------------------------------------------------------------------------------------
 -- func: zone
 -- auth: <Unknown> :: Modded by atom0s. Blocked zones by Tagban with TONS of help from others! Fixed by Teotwaki!
--- desc: Teleports a player to the given zone. Allows admins to set banned zones. 
+-- desc: Teleports a player to the given zone. Allows admins to set banned zones.
 ---------------------------------------------------------------------------------------------------
 
-cmdprops =
-{
+cmdprops = {
     permission = 0,
     parameters = "s"
 };
@@ -14,8 +13,7 @@ cmdprops =
 -- desc: List of zones with their auto-translated group and message id.
 -- note: The format is as follows: groupId, messageId, zoneId
 ---------------------------------------------------------------------------------------------------
-local zone_list =
-{
+local zone_list = {
     { 0x14, 0xA9, 1 }, -- Phanauet Channel
     { 0x14, 0xAA, 2 }, -- Carpenters' Landing
     { 0x14, 0x84, 3 }, -- Manaclipper
@@ -280,19 +278,19 @@ local zone_list =
 -- desc: Called when this command is invoked.
 ---------------------------------------------------------------------------------------------------
 function onTrigger(player, zoneId)
+    if (player:isEngaged() or player:hasEnmity()) then
+        player:PrintToPlayer('This command cannot be used while in combat or under attack! Run away!', 0xF);
+        return;
+    end
+
     -- Blocked zones includes Abyssea, Dynamis, and ALL instances
     -- Can be modded for any set of zones.
-    local blockedZones =
-    {
-   15,16,18,22,27,39,40,41,42,45,55,56,60,63,66,69,73,74,75,76,77,86,93,129,183,
-   132,134,135,215,216,217,218,253,254,255,258,259,260,262,
-   263,264,264,267,268,269,270,271,272,273,274,275,276,277,
-   278,279,280,281,282,283,284,285,185,186,187,188
-
+    local blockedZones = {
+        15, 16, 18, 22, 27, 39, 40, 41, 42, 45, 55, 56, 60, 63, 66, 69, 73, 74, 75, 76, 77, 86, 93, 129, 183,
+        132, 134, 135, 215, 216, 217, 218, 253, 254, 255, 258, 259, 260, 262,
+        263, 264, 264, 267, 268, 269, 270, 271, 272, 273, 274, 275, 276, 277,
+        278, 279, 280, 281, 282, 283, 284, 285, 185, 186, 187, 188
     }
-    local word  = "";
-    local i     = 0;
-    local zone  = zoneId;
     local blocked = false;
 
     -- Ensure a zone was given..
@@ -302,11 +300,16 @@ function onTrigger(player, zoneId)
     end
 
     for _, v in ipairs(blockedZones) do
-        if(tonumber(zoneId) == v) then
+        if (tonumber(zoneId) == v) then
             player:PrintToPlayer(string.format("You cannot enter this zone!"));
             blocked = true;
             return;
         end
+    end
+
+    if (blocked) then
+        -- if zone is blocked, quit here
+        return;
     end
 
     -- Was the zone auto-translated..
@@ -325,7 +328,7 @@ function onTrigger(player, zoneId)
                         return;
                     end
                 end
-                if(not blocked) then
+                if (not blocked) then
                     if (v[3] < 286) then
                         player:setPos(0, 0, 0, 0, v[3]);
                     end
@@ -339,7 +342,7 @@ function onTrigger(player, zoneId)
         return;
     end
 
-    if(not blocked) then
+    if (not blocked) then
         if (zoneId < "286") then
             player:setPos(0, 0, 0, 0, zoneId);
         end

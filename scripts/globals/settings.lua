@@ -101,14 +101,14 @@ LandKingSystem_NQ = 2;
 LandKingSystem_HQ = 2;
 
 -- DYNAMIS SETTINGS
-    BETWEEN_2DYNA_WAIT_TIME = 1;        -- wait time between 2 Dynamis (in real day) min: 1 day
-        DYNA_MIDNIGHT_RESET = true;     -- if true, makes the wait time count by number of server midnights instead of full 24 hour intervals
+    BETWEEN_2DYNA_WAIT_TIME = 0;        -- wait time between 2 Dynamis (in real day) min: 1 day
+        DYNA_MIDNIGHT_RESET = false;    -- if true, makes the wait time count by number of server midnights instead of full 24 hour intervals
              DYNA_LEVEL_MIN = 65;       -- level min for entering in Dynamis
     TIMELESS_HOURGLASS_COST = 500000;   -- refund for the timeless hourglass for Dynamis.
    PRISMATIC_HOURGLASS_COST = 50000;    -- cost of the prismatic hourglass for Dynamis.
      CURRENCY_EXCHANGE_RATE = 100;      -- X Tier 1 ancient currency -> 1 Tier 2, and so on.  Certain values may conflict with shop items.  Not designed to exceed 198.
-RELIC_2ND_UPGRADE_WAIT_TIME = 7200;      -- wait time for 2nd relic upgrade (stage 2 -> stage 3) in seconds. 604800s = 1 RL week.
-RELIC_3RD_UPGRADE_WAIT_TIME = 3600;      -- wait time for 3rd relic upgrade (stage 3 -> stage 4) in seconds. 295200s = 82 hours.
+RELIC_2ND_UPGRADE_WAIT_TIME = 7200;     -- wait time for 2nd relic upgrade (stage 2 -> stage 3) in seconds. 7200s = 2 hours.
+RELIC_3RD_UPGRADE_WAIT_TIME = 3600;     -- wait time for 3rd relic upgrade (stage 3 -> stage 4) in seconds. 3600s = 1 hour.
 FREE_COP_DYNAMIS = 1 ; -- Authorize player to entering inside COP Dynamis without completing COP mission ( 1 = enable 0= disable)
 
 -- QUEST/MISSION SPECIFIC SETTINGS
@@ -174,7 +174,7 @@ BETWEEN_2COSMOCLEANSE_WAIT_TIME = 1; -- day between 2 limbus keyitem  (default 3
 DIMENSIONAL_PORTAL_UNLOCK = false; -- Set true to bypass requirements for using dimensional portals to reach sea for Limbus
 
 -- ABYSSEA
--- FREE_CONFLUX = true; -- Set to true if you want Veridical Conflux activation/teleportation to cost 0 cruor (Default: false)
--- ALL_CONFLUX = true; -- Set to true if you want all new players to start with all Veridical Conflux warps (Default: false)
--- MAW_UNLOCK = true; -- Set to true to unlock all Maw teleports.
+FREE_CONFLUX = true; -- Set to true if you want Veridical Conflux activation/teleportation to cost 0 cruor (Default: false)
+ALL_CONFLUX = true; -- Set to true if you want all new players to start with all Veridical Conflux warps (Default: false)
+MAW_UNLOCK = true; -- Set to true to unlock all Maw teleports.
 VISITANT_BONUS = 2.00; -- Default: 1.00 - (retail) - Multiplies the base time value of each Traverser Stone.
