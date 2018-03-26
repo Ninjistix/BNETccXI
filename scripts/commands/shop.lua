@@ -25,4 +25,34 @@ function onTrigger(player, page)
         showShop(player, STATIC, stock_1);
         player:PrintToPlayer("For all questing needs.");
     end
+
+    if (page == "crystal") then
+        local stock_1 = {
+            4096, 1, -- Fire Crystal
+            4097, 1, -- Ice Crystal
+            4098, 1, -- Wind Crystal
+            4099, 1, -- Earth Crystal
+            4100, 1, -- Lightning Crystal
+            4101, 1, -- Water Crystal
+            4102, 1, -- Light Crystal
+            4103, 1, -- Dark Crystal
+        };
+        showShop(player, STATIC, stock_1);
+        player:PrintToPlayer("For all crystaling needs.");
+    end
+
+    if (page == "cluster") then
+        local stock_1 = {
+            4104, 1, -- Fire Cluster
+            4105, 1, -- Ice Cluster
+            4106, 1, -- Wind Cluster
+            4107, 1, -- Earth Cluster
+            4108, 1, -- Lightning Cluster
+            4109, 1, -- Water Cluster
+            4110, 1, -- Light Cluster
+            4111, 1, -- Dark Cluster
+        };
+        showShop(player, STATIC, stock_1);
+        player:PrintToPlayer("For all clustering needs.");
+    end
 end
