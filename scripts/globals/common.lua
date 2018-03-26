@@ -66,6 +66,36 @@ function getMidnight(day)
 end;
 
 -----------------------------------
+--  getSecondsUntilNextGameMidnight
+--  Returns number of seconds until the next game time midnight
+--  Will return game time seconds, can pass earthSeconds = true to get
+--  seconds in earth time (1/25th of game seconds)
+-----------------------------------
+function getSecondsUntilNextGameMidnight(earthSeconds)
+    local currentVHour = VanadielHour();
+    local currentVMinute = VanadielMinute();
+
+    local hoursUntilMidnight = 0;
+    local minutesUntilMidnight = 0;
+
+    if(currentVHour <= 23 and currentVMinute <= 59) then -- not sure if this is even necessary
+        hoursUntilMidnight = 24 - currentVHour;
+
+        if (60 - currentVMinute > 0) then
+            minutesUntilMidnight = 60 - currentVMinute;
+            hoursUntilMidnight = hoursUntilMidnight - 1;
+        end
+    end
+
+    local secondsUntilMidnight = (hoursUntilMidnight * 60 *60) + (minutesUntilMidnight * 60);
+    if (earthSeconds == true) then
+        return secondsUntilMidnight * 0.04;
+    end
+
+    return secondsUntilMidnight;
+end
+
+-----------------------------------
 --  getConquestTally()
 --  Returns the end of the current conquest tally
 -----------------------------------
