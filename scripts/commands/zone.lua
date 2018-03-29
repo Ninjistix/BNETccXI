@@ -305,7 +305,7 @@ end;
 function onTrigger(player, bytes)
     if (player:isEngaged() or player:hasEnmity()) then
         error(player, 'This command cannot be used while in combat or under attack! Run away!');
-        return ;
+        return;
     end
 
     local x = 0;
@@ -317,7 +317,7 @@ function onTrigger(player, bytes)
 
     if (bytes == nil) then
         error(player, "You must enter a VALID zone id.");
-        return ;
+        return;
     end
     bytes = string.sub(bytes, 6);
     local atpos = getBytePos(bytes, 253);
@@ -343,7 +343,7 @@ function onTrigger(player, bytes)
         zone = tonumber(bytes);
         if (zone == nil or zone < 0 or zone > 293) then
             error(player, "Invalid zone ID.");
-            return ;
+            return;
         end
         for k, v in pairs(zone_list) do
             if (v[3] == zone) then
@@ -360,7 +360,7 @@ function onTrigger(player, bytes)
 
     if (zone_allowed == false) then
         error(player, "Invalid zone or zone is not allowed.");
-        return ;
+        return;
     end
 
     -- send player to destination
