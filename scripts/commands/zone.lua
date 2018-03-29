@@ -1,6 +1,5 @@
 ---------------------------------------------------------------------------------------------------
 -- func: zone
--- auth: <Unknown> :: Modded by atom0s. Blocked zones by Tagban with TONS of help from others! Fixed by Teotwaki!
 -- desc: Teleports a player to the given zone. Allows admins to set banned zones.
 ---------------------------------------------------------------------------------------------------
 
@@ -31,25 +30,25 @@ local zone_list = {
     { 0x14, 0x8E, 13 }, -- Mine Shaft #2716
     { 0x14, 0xDC, 13 }, -- Mine Shaft #2716
     { 0x14, 0xAB, 14 }, -- Hall of Transference
-    --{ 0x14, 0x9B, 16 }, -- Promyvion - Holla
-    --{ 0x14, 0x9A, 16 }, -- Promyvion - Holla
+    -- { 0x14, 0x9B, 16 }, -- Promyvion - Holla
+    -- { 0x14, 0x9A, 16 }, -- Promyvion - Holla
     { 0x14, 0x9C, 17 }, -- Spire of Holla
-    --{ 0x14, 0x9E, 18 }, -- Promyvion - Dem
-    --{ 0x14, 0x9D, 18 }, -- Promyvion - Dem
+    -- { 0x14, 0x9E, 18 }, -- Promyvion - Dem
+    -- { 0x14, 0x9D, 18 }, -- Promyvion - Dem
     { 0x14, 0x9F, 19 }, -- Spire of Dem
     { 0x14, 0xA0, 20 }, -- Promyvion - Mea
     { 0x14, 0xA1, 20 }, -- Promyvion - Mea
     { 0x14, 0xA2, 21 }, -- Spire of Mea
-    --{ 0x14, 0xA3, 22 }, -- Promyvion - Vahzl
-    --{ 0x14, 0xA4, 22 }, -- Promyvion - Vahzl
-    --{ 0x14, 0xA5, 22 }, -- Promyvion - Vahzl
-    --{ 0x14, 0xA6, 22 }, -- Promyvion - Vahzl
+    -- { 0x14, 0xA3, 22 }, -- Promyvion - Vahzl
+    -- { 0x14, 0xA4, 22 }, -- Promyvion - Vahzl
+    -- { 0x14, 0xA5, 22 }, -- Promyvion - Vahzl
+    -- { 0x14, 0xA6, 22 }, -- Promyvion - Vahzl
     { 0x14, 0xA7, 23 }, -- Spire of Vahzl
     { 0x14, 0xA8, 23 }, -- Spire of Vahzl
     { 0x14, 0x90, 24 }, -- Lufaise Meadows
     { 0x14, 0x91, 25 }, -- Misareaux Coast
     { 0x14, 0x8F, 26 }, -- Tavnazian Safehold
-    --{ 0x14, 0x93, 27 }, -- Phomiuna Aqueducts
+    -- { 0x14, 0x93, 27 }, -- Phomiuna Aqueducts
     { 0x14, 0x94, 28 }, -- Sacrarium
     { 0x14, 0x96, 29 }, -- Riverne - Site #B01
     { 0x14, 0x95, 29 }, -- Riverne - Site #B01
@@ -63,10 +62,10 @@ local zone_list = {
     { 0x14, 0xB0, 36 }, -- Empyreal Paradox
     { 0x14, 0xB1, 37 }, -- Temenos
     { 0x14, 0xB2, 38 }, -- Apollyon
-    --{ 0x14, 0xB4, 39 }, -- Dynamis - Valkurm
-    --{ 0x14, 0xB5, 40 }, -- Dynamis - Buburimu
-    --{ 0x14, 0xB6, 41 }, -- Dynamis - Qufim
-    --{ 0x14, 0xB7, 42 }, -- Dynamis - Tavnazia
+    -- { 0x14, 0xB4, 39 }, -- Dynamis - Valkurm
+    -- { 0x14, 0xB5, 40 }, -- Dynamis - Buburimu
+    -- { 0x14, 0xB6, 41 }, -- Dynamis - Qufim
+    -- { 0x14, 0xB7, 42 }, -- Dynamis - Tavnazia
     { 0x14, 0xAF, 43 }, -- Diorama Abdhaljs-Ghelsba
     { 0x14, 0xB8, 44 }, -- Abdhaljs Isle-Purgonorgo
     { 0x14, 0xB9, 46 }, -- Open sea route to Al Zahbi
@@ -78,29 +77,29 @@ local zone_list = {
     { 0x14, 0xBE, 52 }, -- Bhaflau Thickets
     { 0x14, 0xBF, 53 }, -- Nashmau
     { 0x14, 0xC0, 54 }, -- Arrapago Reef
-    --{ 0x14, 0xC1, 55 }, -- Ilrusi Atoll
-    --{ 0x14, 0xC2, 56 }, -- Periqia
+    -- { 0x14, 0xC1, 55 }, -- Ilrusi Atoll
+    -- { 0x14, 0xC2, 56 }, -- Periqia
     { 0x14, 0xC3, 57 }, -- Talacca Cove
     { 0x14, 0xC4, 58 }, -- Silver Sea route to Nashmau
     { 0x14, 0xC5, 59 }, -- Silver Sea route to Al Zahbi
-    --{ 0x14, 0xC6, 60 }, -- The Ashu Talif
+    -- { 0x14, 0xC6, 60 }, -- The Ashu Talif
     { 0x14, 0xC7, 61 }, -- Mount Zhayolm
     { 0x14, 0xC8, 62 }, -- Halvung
-    --{ 0x14, 0xC9, 63 }, -- Lebros Cavern
+    -- { 0x14, 0xC9, 63 }, -- Lebros Cavern
     { 0x14, 0xCA, 64 }, -- Navukgo Execution Chamber
     { 0x14, 0xCB, 65 }, -- Mamook
-    --{ 0x14, 0xCC, 66 }, -- Mamool Ja Training Grounds
+    -- { 0x14, 0xCC, 66 }, -- Mamool Ja Training Grounds
     { 0x14, 0xCD, 67 }, -- Jade Sepulcher
     { 0x14, 0xCE, 68 }, -- Aydeewa Subterrane
-    --{ 0x14, 0xCF, 69 }, -- Leujaoam Sanctum
+    -- { 0x14, 0xCF, 69 }, -- Leujaoam Sanctum
     { 0x27, 0x0F, 70 }, -- Chocobo Circuit
     { 0x27, 0x10, 71 }, -- The Colosseum
     { 0x14, 0xDD, 72 }, -- Alzadaal Undersea Ruins
-    --{ 0x14, 0xDE, 73 }, -- Zhayolm Remnants
-    --{ 0x14, 0xDF, 74 }, -- Arrapago Remnants
-    --{ 0x14, 0xE0, 75 }, -- Bhaflau Remnants
-    --{ 0x14, 0xE1, 76 }, -- Silver Sea Remnants
-    --{ 0x14, 0xE2, 77 }, -- Nyzul Isle
+    -- { 0x14, 0xDE, 73 }, -- Zhayolm Remnants
+    -- { 0x14, 0xDF, 74 }, -- Arrapago Remnants
+    -- { 0x14, 0xE0, 75 }, -- Bhaflau Remnants
+    -- { 0x14, 0xE1, 76 }, -- Silver Sea Remnants
+    -- { 0x14, 0xE2, 77 }, -- Nyzul Isle
     { 0x14, 0xDA, 78 }, -- Hazhalm Testing Grounds
     { 0x14, 0xD0, 79 }, -- Caedarva Mire
     { 0x27, 0x11, 80 }, -- Southern San d'Oria [S]
@@ -110,14 +109,14 @@ local zone_list = {
     { 0x27, 0x17, 84 }, -- Batallia Downs [S]
     { 0x27, 0x3E, 85 }, -- La Vaule [S]
     { 0x27, 0x40, 85 }, -- La Vaule [S]
-    --{ 0x27, 0x19, 86 }, -- Everbloom Hollow
+    -- { 0x27, 0x19, 86 }, -- Everbloom Hollow
     { 0x27, 0x1C, 87 }, -- Bastok Markets [S]
     { 0x27, 0x1E, 88 }, -- North Gustaberg [S]
     { 0x27, 0x20, 89 }, -- Grauberg [S]
     { 0x27, 0x25, 90 }, -- Pashhow Marshlands [S]
     { 0x27, 0x27, 91 }, -- Rolanberry Fields [S]
     { 0x27, 0x42, 92 }, -- Beadeaux [S]
-    --{ 0x27, 0x22, 93 }, -- Ruhotz Silvermines
+    -- { 0x27, 0x22, 93 }, -- Ruhotz Silvermines
     { 0x27, 0x2B, 94 }, -- Windurst Waters [S]
     { 0x27, 0x2D, 95 }, -- West Sarutabaruta [S]
     { 0x27, 0x2F, 96 }, -- Fort Karugo-Narugo [S]
@@ -154,10 +153,10 @@ local zone_list = {
     { 0x14, 0x08, 126 }, -- Qufim Island
     { 0x14, 0x0A, 127 }, -- Behemoth's Dominion
     { 0x14, 0x43, 128 }, -- Valley of Sorrows
-    --{ 0x27, 0x31, 129 }, -- Ghoyu's Reverie
+    -- { 0x27, 0x31, 129 }, -- Ghoyu's Reverie
     { 0x14, 0x6F, 130 }, -- Ru'Aun Gardens
-    --{ 0x14, 0x82, 134 }, -- Dynamis - Beaucedine
-    --{ 0x14, 0x83, 135 }, -- Dynamis - Xarcabard
+    -- { 0x14, 0x82, 134 }, -- Dynamis - Beaucedine
+    -- { 0x14, 0x83, 135 }, -- Dynamis - Xarcabard
     { 0x27, 0x46, 136 }, -- Beaucedine Glacier [S]
     { 0x27, 0x48, 137 }, -- Xarcabard [S]
     { 0x14, 0x65, 139 }, -- Horlais Peak
@@ -205,10 +204,10 @@ local zone_list = {
     { 0x14, 0x73, 180 }, -- La'Loff Amphitheater
     { 0x14, 0x74, 181 }, -- The Celestial Nexus
     { 0x14, 0x0D, 184 }, -- Lower Delkfutt's Tower
-    --{ 0x14, 0x7E, 185 }, -- Dynamis - San d'Oria
-    --{ 0x14, 0x7F, 186 }, -- Dynamis - Bastok
-    --{ 0x14, 0x80, 187 }, -- Dynamis - Windurst
-    --{ 0x14, 0x81, 188 }, -- Dynamis - Jeuno
+    -- { 0x14, 0x7E, 185 }, -- Dynamis - San d'Oria
+    -- { 0x14, 0x7F, 186 }, -- Dynamis - Bastok
+    -- { 0x14, 0x80, 187 }, -- Dynamis - Windurst
+    -- { 0x14, 0x81, 188 }, -- Dynamis - Jeuno
     { 0x14, 0x6E, 190 }, -- King Ranperre's Tomb
     { 0x14, 0x62, 191 }, -- Dangruf Wadi
     { 0x14, 0x1C, 192 }, -- Inner Horutoto Ruins
@@ -256,27 +255,27 @@ local zone_list = {
     { 0x14, 0x09, 252 }, -- Norg
     { 0x27, 0x4C, 256 }, -- Western Adoulin
     { 0x27, 0x4D, 257 }, -- Eastern Adoulin
-    --{ 0x27, 0x4E, 258 }, -- Rala Waterways
-    --{ 0x27, 0x4E, 259 }, -- Rala Waterways [U]
-    --{ 0x27, 0x4F, 260 }, -- Yahse Hunting Grounds
+    -- { 0x27, 0x4E, 258 }, -- Rala Waterways
+    -- { 0x27, 0x4E, 259 }, -- Rala Waterways [U]
+    -- { 0x27, 0x4F, 260 }, -- Yahse Hunting Grounds
     { 0x27, 0x50, 261 }, -- Ceizak Battlegrounds
-    --{ 0x27, 0x51, 262 }, -- Foret de Hennetiel
-    --{ 0x27, 0x56, 263 }, -- Yorcia Weald
-    --{ 0x27, 0x56, 264 }, -- Yorcia Weald [U]
+    -- { 0x27, 0x51, 262 }, -- Foret de Hennetiel
+    -- { 0x27, 0x56, 263 }, -- Yorcia Weald
+    -- { 0x27, 0x56, 264 }, -- Yorcia Weald [U]
     { 0x27, 0x52, 265 }, -- Morimar Basalt Fields
     { 0x27, 0x57, 266 }, -- Marjami Ravine
-    --{ 0x27, 0x5C, 267 }, -- Kamihr Drifts
-    --{ 0x27, 0x53, 268 }, -- Sih Gates
-    --{ 0x27, 0x54, 269 }, -- Moh Gates
-    --{ 0x27, 0x55, 270 }, -- Cirdas Caverns
-    --{ 0x27, 0x55, 271 }, -- Cirdas Caverns [U]
-    --{ 0x27, 0x58, 272 }, -- Dho Gates
-    --{ 0x27, 0x5D, 273 }, -- Woh Gates
-    --{ 0x27, 0x12, 274 }, -- Outer Ra'Kaznar
-    --{ 0x27, 0x12, 275 }, -- Outer Ra'Kaznar [U]
-    --{ 0x27, 0x5A, 280 }, -- Mog Garden
-    --{ 0x27, 0x59, 284 }, -- Celennia Memorial Library
-    --{ 0x27, 0x5B, 285 }, -- Feretory
+    -- { 0x27, 0x5C, 267 }, -- Kamihr Drifts
+    -- { 0x27, 0x53, 268 }, -- Sih Gates
+    -- { 0x27, 0x54, 269 }, -- Moh Gates
+    -- { 0x27, 0x55, 270 }, -- Cirdas Caverns
+    -- { 0x27, 0x55, 271 }, -- Cirdas Caverns [U]
+    -- { 0x27, 0x58, 272 }, -- Dho Gates
+    -- { 0x27, 0x5D, 273 }, -- Woh Gates
+    -- { 0x27, 0x12, 274 }, -- Outer Ra'Kaznar
+    -- { 0x27, 0x12, 275 }, -- Outer Ra'Kaznar [U]
+    -- { 0x27, 0x5A, 280 }, -- Mog Garden
+    -- { 0x27, 0x59, 284 }, -- Celennia Memorial Library
+    -- { 0x27, 0x5B, 285 }, -- Feretory
     { 0x14, 0x09, 288 }, -- Escha - Zi'Tah
 };
 
