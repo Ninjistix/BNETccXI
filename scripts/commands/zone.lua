@@ -6,12 +6,14 @@
 
 cmdprops = {
     permission = 0,
-    parameters = "s"
+    parameters = "b"
 };
 
 ---------------------------------------------------------------------------------------------------
 -- desc: List of zones with their auto-translated group and message id.
 -- note: The format is as follows: groupId, messageId, zoneId
+--       Only zones listed in the table below is allowed
+--       Comment out a zone if you want to block it
 ---------------------------------------------------------------------------------------------------
 local zone_list = {
     { 0x14, 0xA9, 1 }, -- Phanauet Channel
@@ -29,25 +31,25 @@ local zone_list = {
     { 0x14, 0x8E, 13 }, -- Mine Shaft #2716
     { 0x14, 0xDC, 13 }, -- Mine Shaft #2716
     { 0x14, 0xAB, 14 }, -- Hall of Transference
-    { 0x14, 0x9B, 16 }, -- Promyvion - Holla
-    { 0x14, 0x9A, 16 }, -- Promyvion - Holla
+    --{ 0x14, 0x9B, 16 }, -- Promyvion - Holla
+    --{ 0x14, 0x9A, 16 }, -- Promyvion - Holla
     { 0x14, 0x9C, 17 }, -- Spire of Holla
-    { 0x14, 0x9E, 18 }, -- Promyvion - Dem
-    { 0x14, 0x9D, 18 }, -- Promyvion - Dem
+    --{ 0x14, 0x9E, 18 }, -- Promyvion - Dem
+    --{ 0x14, 0x9D, 18 }, -- Promyvion - Dem
     { 0x14, 0x9F, 19 }, -- Spire of Dem
     { 0x14, 0xA0, 20 }, -- Promyvion - Mea
     { 0x14, 0xA1, 20 }, -- Promyvion - Mea
     { 0x14, 0xA2, 21 }, -- Spire of Mea
-    { 0x14, 0xA3, 22 }, -- Promyvion - Vahzl
-    { 0x14, 0xA4, 22 }, -- Promyvion - Vahzl
-    { 0x14, 0xA5, 22 }, -- Promyvion - Vahzl
-    { 0x14, 0xA6, 22 }, -- Promyvion - Vahzl
+    --{ 0x14, 0xA3, 22 }, -- Promyvion - Vahzl
+    --{ 0x14, 0xA4, 22 }, -- Promyvion - Vahzl
+    --{ 0x14, 0xA5, 22 }, -- Promyvion - Vahzl
+    --{ 0x14, 0xA6, 22 }, -- Promyvion - Vahzl
     { 0x14, 0xA7, 23 }, -- Spire of Vahzl
     { 0x14, 0xA8, 23 }, -- Spire of Vahzl
     { 0x14, 0x90, 24 }, -- Lufaise Meadows
     { 0x14, 0x91, 25 }, -- Misareaux Coast
     { 0x14, 0x8F, 26 }, -- Tavnazian Safehold
-    { 0x14, 0x93, 27 }, -- Phomiuna Aqueducts
+    --{ 0x14, 0x93, 27 }, -- Phomiuna Aqueducts
     { 0x14, 0x94, 28 }, -- Sacrarium
     { 0x14, 0x96, 29 }, -- Riverne - Site #B01
     { 0x14, 0x95, 29 }, -- Riverne - Site #B01
@@ -61,10 +63,10 @@ local zone_list = {
     { 0x14, 0xB0, 36 }, -- Empyreal Paradox
     { 0x14, 0xB1, 37 }, -- Temenos
     { 0x14, 0xB2, 38 }, -- Apollyon
-    { 0x14, 0xB4, 39 }, -- Dynamis - Valkurm
-    { 0x14, 0xB5, 40 }, -- Dynamis - Buburimu
-    { 0x14, 0xB6, 41 }, -- Dynamis - Qufim
-    { 0x14, 0xB7, 42 }, -- Dynamis - Tavnazia
+    --{ 0x14, 0xB4, 39 }, -- Dynamis - Valkurm
+    --{ 0x14, 0xB5, 40 }, -- Dynamis - Buburimu
+    --{ 0x14, 0xB6, 41 }, -- Dynamis - Qufim
+    --{ 0x14, 0xB7, 42 }, -- Dynamis - Tavnazia
     { 0x14, 0xAF, 43 }, -- Diorama Abdhaljs-Ghelsba
     { 0x14, 0xB8, 44 }, -- Abdhaljs Isle-Purgonorgo
     { 0x14, 0xB9, 46 }, -- Open sea route to Al Zahbi
@@ -76,29 +78,29 @@ local zone_list = {
     { 0x14, 0xBE, 52 }, -- Bhaflau Thickets
     { 0x14, 0xBF, 53 }, -- Nashmau
     { 0x14, 0xC0, 54 }, -- Arrapago Reef
-    { 0x14, 0xC1, 55 }, -- Ilrusi Atoll
-    { 0x14, 0xC2, 56 }, -- Periqia
+    --{ 0x14, 0xC1, 55 }, -- Ilrusi Atoll
+    --{ 0x14, 0xC2, 56 }, -- Periqia
     { 0x14, 0xC3, 57 }, -- Talacca Cove
     { 0x14, 0xC4, 58 }, -- Silver Sea route to Nashmau
     { 0x14, 0xC5, 59 }, -- Silver Sea route to Al Zahbi
-    { 0x14, 0xC6, 60 }, -- The Ashu Talif
+    --{ 0x14, 0xC6, 60 }, -- The Ashu Talif
     { 0x14, 0xC7, 61 }, -- Mount Zhayolm
     { 0x14, 0xC8, 62 }, -- Halvung
-    { 0x14, 0xC9, 63 }, -- Lebros Cavern
+    --{ 0x14, 0xC9, 63 }, -- Lebros Cavern
     { 0x14, 0xCA, 64 }, -- Navukgo Execution Chamber
     { 0x14, 0xCB, 65 }, -- Mamook
-    { 0x14, 0xCC, 66 }, -- Mamool Ja Training Grounds
+    --{ 0x14, 0xCC, 66 }, -- Mamool Ja Training Grounds
     { 0x14, 0xCD, 67 }, -- Jade Sepulcher
     { 0x14, 0xCE, 68 }, -- Aydeewa Subterrane
-    { 0x14, 0xCF, 69 }, -- Leujaoam Sanctum
+    --{ 0x14, 0xCF, 69 }, -- Leujaoam Sanctum
     { 0x27, 0x0F, 70 }, -- Chocobo Circuit
     { 0x27, 0x10, 71 }, -- The Colosseum
     { 0x14, 0xDD, 72 }, -- Alzadaal Undersea Ruins
-    { 0x14, 0xDE, 73 }, -- Zhayolm Remnants
-    { 0x14, 0xDF, 74 }, -- Arrapago Remnants
-    { 0x14, 0xE0, 75 }, -- Bhaflau Remnants
-    { 0x14, 0xE1, 76 }, -- Silver Sea Remnants
-    { 0x14, 0xE2, 77 }, -- Nyzul Isle
+    --{ 0x14, 0xDE, 73 }, -- Zhayolm Remnants
+    --{ 0x14, 0xDF, 74 }, -- Arrapago Remnants
+    --{ 0x14, 0xE0, 75 }, -- Bhaflau Remnants
+    --{ 0x14, 0xE1, 76 }, -- Silver Sea Remnants
+    --{ 0x14, 0xE2, 77 }, -- Nyzul Isle
     { 0x14, 0xDA, 78 }, -- Hazhalm Testing Grounds
     { 0x14, 0xD0, 79 }, -- Caedarva Mire
     { 0x27, 0x11, 80 }, -- Southern San d'Oria [S]
@@ -108,14 +110,14 @@ local zone_list = {
     { 0x27, 0x17, 84 }, -- Batallia Downs [S]
     { 0x27, 0x3E, 85 }, -- La Vaule [S]
     { 0x27, 0x40, 85 }, -- La Vaule [S]
-    { 0x27, 0x19, 86 }, -- Everbloom Hollow
+    --{ 0x27, 0x19, 86 }, -- Everbloom Hollow
     { 0x27, 0x1C, 87 }, -- Bastok Markets [S]
     { 0x27, 0x1E, 88 }, -- North Gustaberg [S]
     { 0x27, 0x20, 89 }, -- Grauberg [S]
     { 0x27, 0x25, 90 }, -- Pashhow Marshlands [S]
     { 0x27, 0x27, 91 }, -- Rolanberry Fields [S]
     { 0x27, 0x42, 92 }, -- Beadeaux [S]
-    { 0x27, 0x22, 93 }, -- Ruhotz Silvermines
+    --{ 0x27, 0x22, 93 }, -- Ruhotz Silvermines
     { 0x27, 0x2B, 94 }, -- Windurst Waters [S]
     { 0x27, 0x2D, 95 }, -- West Sarutabaruta [S]
     { 0x27, 0x2F, 96 }, -- Fort Karugo-Narugo [S]
@@ -152,10 +154,10 @@ local zone_list = {
     { 0x14, 0x08, 126 }, -- Qufim Island
     { 0x14, 0x0A, 127 }, -- Behemoth's Dominion
     { 0x14, 0x43, 128 }, -- Valley of Sorrows
-    { 0x27, 0x31, 129 }, -- Ghoyu's Reverie
+    --{ 0x27, 0x31, 129 }, -- Ghoyu's Reverie
     { 0x14, 0x6F, 130 }, -- Ru'Aun Gardens
-    { 0x14, 0x82, 134 }, -- Dynamis - Beaucedine
-    { 0x14, 0x83, 135 }, -- Dynamis - Xarcabard
+    --{ 0x14, 0x82, 134 }, -- Dynamis - Beaucedine
+    --{ 0x14, 0x83, 135 }, -- Dynamis - Xarcabard
     { 0x27, 0x46, 136 }, -- Beaucedine Glacier [S]
     { 0x27, 0x48, 137 }, -- Xarcabard [S]
     { 0x14, 0x65, 139 }, -- Horlais Peak
@@ -203,10 +205,10 @@ local zone_list = {
     { 0x14, 0x73, 180 }, -- La'Loff Amphitheater
     { 0x14, 0x74, 181 }, -- The Celestial Nexus
     { 0x14, 0x0D, 184 }, -- Lower Delkfutt's Tower
-    { 0x14, 0x7E, 185 }, -- Dynamis - San d'Oria
-    { 0x14, 0x7F, 186 }, -- Dynamis - Bastok
-    { 0x14, 0x80, 187 }, -- Dynamis - Windurst
-    { 0x14, 0x81, 188 }, -- Dynamis - Jeuno
+    --{ 0x14, 0x7E, 185 }, -- Dynamis - San d'Oria
+    --{ 0x14, 0x7F, 186 }, -- Dynamis - Bastok
+    --{ 0x14, 0x80, 187 }, -- Dynamis - Windurst
+    --{ 0x14, 0x81, 188 }, -- Dynamis - Jeuno
     { 0x14, 0x6E, 190 }, -- King Ranperre's Tomb
     { 0x14, 0x62, 191 }, -- Dangruf Wadi
     { 0x14, 0x1C, 192 }, -- Inner Horutoto Ruins
@@ -254,97 +256,113 @@ local zone_list = {
     { 0x14, 0x09, 252 }, -- Norg
     { 0x27, 0x4C, 256 }, -- Western Adoulin
     { 0x27, 0x4D, 257 }, -- Eastern Adoulin
-    { 0x27, 0x4E, 259 }, -- Rala Waterways [U]
-    { 0x27, 0x4F, 260 }, -- Yahse Hunting Grounds
+    --{ 0x27, 0x4E, 258 }, -- Rala Waterways
+    --{ 0x27, 0x4E, 259 }, -- Rala Waterways [U]
+    --{ 0x27, 0x4F, 260 }, -- Yahse Hunting Grounds
     { 0x27, 0x50, 261 }, -- Ceizak Battlegrounds
-    { 0x27, 0x51, 262 }, -- Foret de Hennetiel
-    { 0x27, 0x56, 264 }, -- Yorcia Weald [U]
+    --{ 0x27, 0x51, 262 }, -- Foret de Hennetiel
+    --{ 0x27, 0x56, 263 }, -- Yorcia Weald
+    --{ 0x27, 0x56, 264 }, -- Yorcia Weald [U]
     { 0x27, 0x52, 265 }, -- Morimar Basalt Fields
     { 0x27, 0x57, 266 }, -- Marjami Ravine
-    { 0x27, 0x5C, 267 }, -- Kamihr Drifts
-    { 0x27, 0x53, 268 }, -- Sih Gates
-    { 0x27, 0x54, 269 }, -- Moh Gates
-    { 0x27, 0x55, 271 }, -- Cirdas Caverns [U]
-    { 0x27, 0x58, 272 }, -- Dho Gates
-    { 0x27, 0x5D, 273 }, -- Woh Gates
-    { 0x27, 0x12, 275 }, -- Outer Ra'Kaznar [U]
-    { 0x27, 0x5A, 280 }, -- Mog Garden
-    { 0x27, 0x59, 284 }, -- Celennia Memorial Library
-    { 0x27, 0x5B, 285 }, -- Feretory
+    --{ 0x27, 0x5C, 267 }, -- Kamihr Drifts
+    --{ 0x27, 0x53, 268 }, -- Sih Gates
+    --{ 0x27, 0x54, 269 }, -- Moh Gates
+    --{ 0x27, 0x55, 270 }, -- Cirdas Caverns
+    --{ 0x27, 0x55, 271 }, -- Cirdas Caverns [U]
+    --{ 0x27, 0x58, 272 }, -- Dho Gates
+    --{ 0x27, 0x5D, 273 }, -- Woh Gates
+    --{ 0x27, 0x12, 274 }, -- Outer Ra'Kaznar
+    --{ 0x27, 0x12, 275 }, -- Outer Ra'Kaznar [U]
+    --{ 0x27, 0x5A, 280 }, -- Mog Garden
+    --{ 0x27, 0x59, 284 }, -- Celennia Memorial Library
+    --{ 0x27, 0x5B, 285 }, -- Feretory
+    { 0x14, 0x09, 288 }, -- Escha - Zi'Tah
 };
+
+function error(player, msg)
+    player:PrintToPlayer(msg);
+    if (msg == nil) then
+        player:PrintToPlayer("You must enter a VALID zone id.");
+    end
+end;
+
+function getBytePos(s, needle)
+    local i;
+    local b;
+    for i = 1, string.len(s), 1 do
+        if (string.byte(s, i) == needle) then
+            return i;
+        end
+    end
+    return nil;
+end;
 
 ---------------------------------------------------------------------------------------------------
 -- func: onTrigger
 -- desc: Called when this command is invoked.
 ---------------------------------------------------------------------------------------------------
-function onTrigger(player, zoneId)
+function onTrigger(player, bytes)
     if (player:isEngaged() or player:hasEnmity()) then
-        player:PrintToPlayer('This command cannot be used while in combat or under attack! Run away!', 0xF);
-        return;
+        error(player, 'This command cannot be used while in combat or under attack! Run away!');
+        return ;
     end
 
-    -- Blocked zones includes Abyssea, Dynamis, and ALL instances
-    -- Can be modded for any set of zones.
-    local blockedZones = {
-        15, 16, 18, 22, 27, 39, 40, 41, 42, 45, 55, 56, 60, 63, 66, 69, 73, 74, 75, 76, 77, 86, 93, 129, 183,
-        132, 134, 135, 215, 216, 217, 218, 253, 254, 255, 258, 259, 260, 262,
-        263, 264, 264, 267, 268, 269, 270, 271, 272, 273, 274, 275, 276, 277,
-        278, 279, 280, 281, 282, 283, 284, 285, 185, 186, 187, 188
-    }
-    local blocked = false;
+    local x = 0;
+    local y = 0;
+    local z = 0;
+    local rot = 0;
+    local zone;
+    local zone_allowed = false;
 
-    -- Ensure a zone was given..
-    if (zoneId == nil) then
-        player:PrintToPlayer("You must enter a VALID zone id. (MAX Zone ID is 285)");
-        return;
+    if (bytes == nil) then
+        error(player, "You must enter a VALID zone id.");
+        return ;
     end
+    bytes = string.sub(bytes, 6);
+    local atpos = getBytePos(bytes, 253);
 
-    for _, v in ipairs(blockedZones) do
-        if (tonumber(zoneId) == v) then
-            player:PrintToPlayer(string.format("You cannot enter this zone!"));
-            blocked = true;
-            return;
-        end
-    end
-
-    if (blocked) then
-        -- if zone is blocked, quit here
-        return;
-    end
-
-    -- Was the zone auto-translated..
-    if (string.sub(zoneId, 1, 2) == '\253\02' and string.byte(zoneId, 5) ~= nil and string.byte(zoneId, 6) == 0xFD) then
-        -- Pull the group and message id from the translated string..
-        local groupId = string.byte(zoneId, 4);
-        local messageId = string.byte(zoneId, 5);
-
-        -- Attempt to lookup this zone..
+    -- validate destination
+    if (atpos ~= nil) then
+        -- destination is an auto-translate phrase
+        local groupId = string.byte(bytes, atpos + 3);
+        local messageId = string.byte(bytes, atpos + 4);
         for k, v in pairs(zone_list) do
             if (v[1] == groupId and v[2] == messageId) then
-                for _, id in ipairs(blockedZones) do
-                    if (tonumber(v[3]) == id) then
-                        player:PrintToPlayer(string.format("You cannot enter this zone!"));
-                        blocked = true;
-                        return;
-                    end
-                end
-                if (not blocked) then
-                    if (v[3] < 286) then
-                        player:setPos(0, 0, 0, 0, v[3]);
-                    end
-                end;
-                return;
+                x = v[4] or 0;
+                y = v[5] or 0;
+                z = v[6] or 0;
+                rot = 0;
+                zone = v[3];
+                zone_allowed = true;
+                break ;
             end
         end
-
-        -- Zone was not found, allow the user to know..
-        player:PrintToPlayer('Unknown zone, could not teleport.');
-        return;
-    end
-
-    if (not blocked) then
-        if (zoneId < "286") then
-            player:setPos(0, 0, 0, 0, zoneId);
+    else
+        -- destination is a zone ID.
+        zone = tonumber(bytes);
+        if (zone == nil or zone < 0 or zone > 293) then
+            error(player, "Invalid zone ID.");
+            return ;
+        end
+        for k, v in pairs(zone_list) do
+            if (v[3] == zone) then
+                x = v[4] or 0;
+                y = v[5] or 0;
+                z = v[6] or 0;
+                rot = 0;
+                zone = v[3];
+                zone_allowed = true;
+                break ;
+            end
         end
     end
+
+    if (zone_allowed == false) then
+        error(player, "Invalid zone or zone is not allowed.");
+        return ;
+    end
+
+    -- send player to destination
+    player:setPos(x, y, z, rot, zone);
 end
